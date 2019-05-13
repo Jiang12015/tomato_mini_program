@@ -28,9 +28,11 @@ Component({
   methods: {
    confirm(){
      this.triggerEvent('confirm',this.data.value)
+     this.data.value = ''
    },
    cancel(){
      this.triggerEvent('cancel', '取消')
+     this.data.value = ''
    },
    watchValue(event){
      this.data.value = event.detail.value

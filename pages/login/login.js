@@ -33,15 +33,15 @@ Page({
         app_id,
         app_secret
       })
-      .then((response) => {
-        this.saveMessage(response)
+      .then((res) => {
+        this.saveMessage(res)
         wx.reLaunch({
           url: "/pages/home/home"
         })
       })
   },
-  saveMessage(response) {
-    wx.setStorageSync('me', response.data.detail)
-    wx.setStorageSync('X-token', response.header["X-token"])
+  saveMessage(res) {
+    wx.setStorageSync('me', res.data.detail)
+    wx.setStorageSync('X-token', res.header["X-token"])
   }
 })

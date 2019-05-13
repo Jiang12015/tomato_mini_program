@@ -1,46 +1,108 @@
-// pages/login/login.js
-Page({
+const { http } = require('../../utils/http.js')
 
-  /**
-   * 页面的初始数据
-   */
+
+
+
+Page({
+  updateId: '',
+  description: '',
   data: {
-    lists: [
-      { id: 1, text: "任务1", finished: true },
-      { id: 2, text: "任务2", finished: true },
-      { id: 3, text: "任务3", finished: false },
-      { id: 4, text: "任务4", finished: true },
-      { id: 5, text: "任务5", finished: false },
-    ],
-    visible: false
+    lists: [],
+    visibleConfirm: false,
+    visibleUpdate: false,
+    aftercompleted: false,
+    selectCompleted: '',
+    selectTab: '',
   },
-  confirm(event) {
-    console.log(event)
+  onShow() {
+    this.getLists()
+    if (!this.data.lists.length) {
+      this.setData({ selectTab: '' })
+    }
+
   },
+  getLists() {//初始化
+    http.get('/todos?completed = false').then(res => {
+      if (res.data.resources) {
+        this.data.lists = res.data.resources
+        this.setData({ lists: this.data.lists })
+        this.hideConfirm()
+      }
+    })
+  },//确认创建
   confirmCreate(event) {
     let content = event.detail
     if (content) {
-      let todo = [{ id: this.data.lists.length + 1, text: content, finished: false }]
-      this.data.lists = todo.concat(this.data.lists)
-      this.setData({
-        lists: this.data.lists
+      http.post('/todos', {
+        completed: false, description: content
+      }).then(res => {
+        let todo = [res.data.resource]
+        this.data.lists = todo.concat(this.data.lists)
+        this.setData({ lists: this.data.lists })
+        this.hideConfirm()
       })
-      this.hideConfirm()
     }
+
   },
-  destroyTodo(event) {
-    console.log(event)
+  updateTodos(event) {//更新
+    let { id, index } = event.currentTarget.dataset
+    this.updateId = id
+    let description = this.data.lists[index].description
+    this.setData({visibleUpdate: true })
+  },
+  confirmUpdate(event) {//确认更新
+    let description = event.detail
+    if (description) {
+      let description = event.detail
+      http.put(`/todos/${this.updateId}`, {
+        description: description
+      }).then(res => {
+        this.getLists()
+        this.hideUpdate()
+        wx.showToast({
+          title: '修改成功',
+          icon: 'success',
+          duration: 1000
+        })
+      })
+    }
+    this.hideUpdate()
+
+  },
+  hideUpdate() {
+    this.setData({ visibleUpdate: false })
+  },
+  destroyTodo(event) {//删除
     let id = event.currentTarget.dataset.id
     let index = event.currentTarget.dataset.index
-    this.data.lists[index].finished = false
-    this.setData({
-      lists: this.data.lists
-    })
+    this.setData({ selectTab: index })
+    setTimeout(() => {
+      http.put(`/todos/${id}`, {
+        completed: true
+      }).then(res => {
+        let todo = res.data.resource
+        this.data.lists[index] = todo
+        this.setData({ lists: this.data.lists })
+        this.setData({ selectTab: '' })
+        wx.showToast({
+          title: '确认完成',
+          icon: 'success',
+          duration: 1000
+        })
+      })
+    }, 1000)
+
+
+
   },
-  hideConfirm(event) {
-    this.setData({ visible: false })
+  showConfirm() { //显示创建confirm
+    this.setData({ visibleConfirm: true })
   },
-  showConfirm() {
-    this.setData({ visible: true })
+  cancelCreate() {//取消创建
+    this.hideConfirm()
+  },
+  hideConfirm() {
+    this.setData({ visibleConfirm: false })
   }
+
 })

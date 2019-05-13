@@ -1,5 +1,3 @@
-/* pages/home/home.wxss */
-
 .home-container { 
   height: 100vh;
   background: #F6F6F6;
@@ -11,8 +9,8 @@
 
   .tomato-wrapper {
     flex: 1;
-    margin-top: 20rpx;
-    padding: 0 26rpx;
+    margin-top: 140rpx;
+    padding: 0 28rpx;
   }
   .tomato-wrapper .tomato {
     background:#EEF7F6;
