@@ -1,0 +1,21 @@
+<view class="me-container">
+  <view class="header">
+    <view class="avatar">
+      <open-data type='userAvatarUrl'></open-data>
+    </view>
+    <view class="details">
+      <open-data type='userNickName' class="name"></open-data>
+    </view>
+    <button open-type="contact" class="qr">问题反馈</button>
+    <!-- <view class="qr">问题反馈</view> -->
+  </view>
+  <view class="tabs">
+    <view hover-class='hover-active' data-name="0" bindtap="changeTomato">
+      我完成的任务
+    </view>
+    <view hover-class='hover-active' data-name="1" bindtap="changeTask">
+      番茄历史
+    </view>
+  </view>
+
+</view>
