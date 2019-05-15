@@ -41,6 +41,8 @@ Page({
         this.setData({ lists: this.data.lists })
         this.hideConfirm()
       })
+    }else{
+      this.hideConfirm()
     }
 
   },

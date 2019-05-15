@@ -11,8 +11,15 @@ Component({
     visible:{
       type:Boolean,
       value:false
+    },
+    yes: {
+      type: String,
+      value: ""
+    },
+    no: {
+      type: String,
+      value: ""
     }
-
   },
 
   /**

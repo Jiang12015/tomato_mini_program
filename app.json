@@ -1,10 +1,9 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/me/me",
     "pages/home/home",
-    "pages/tomato/tomato",
-    "pages/binding/binding"
+    "pages/me/me",
+    "pages/tomato/tomato"
   ],
   "window": {
     "backgroundTextStyle": "light",

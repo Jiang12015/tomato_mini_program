@@ -5,12 +5,12 @@
       <text bindtap="updateTodos" data-index="{{index}}" data-id="{{item.id}}">{{item.description}}</text>
     </view>
   </scroll-view>
-  <t-button  type="change" class="createButton" text="创建任务" bindtap='showConfirm'>创建任务</t-button>
+  <t-button  type="change" class="createButton" text="ToDoList" bindtap='showConfirm'>创建任务</t-button>
   <view class="tomato-wrapper">
     <navigator class="tomato" url="/pages/tomato/tomato">
       <t-clock text="点击开始闹钟"></t-clock>
     </navigator>
   </view>
-  <t-confirm placeholder='我的目标是？' bindconfirm="confirmCreate" bindcancel="hideConfirm" visible="{{visibleConfirm}}"></t-confirm>
-  <t-confirm placeholder='更换目标？'  bindconfirm="confirmUpdate" bindcancel="hideUpdate" visible="{{visibleUpdate}}"></t-confirm>
+  <t-confirm yes="确定" no="取消" placeholder='我的目标是？' bindconfirm="confirmCreate" bindcancel="hideConfirm" visible="{{visibleConfirm}}"></t-confirm>
+  <t-confirm yes="确定" no="取消" placeholder='更换目标？'  bindconfirm="confirmUpdate" bindcancel="hideUpdate" visible="{{visibleUpdate}}"></t-confirm>
 </view>

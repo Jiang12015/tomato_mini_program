@@ -16,10 +16,10 @@
     <t-button size="mini" type="change" text="再来一组"></t-button>
   </view>
   <view class='abandonConfirm'>
-    <t-confirm visible="{{confirmVisible}}" bindconfirm="confirmAbandon" bindcancel="hideAbandon" placeholder="放弃理由"></t-confirm>
+    <t-confirm yes="确定" no="取消" visible="{{confirmVisible}}" bindconfirm="confirmAbandon" bindcancel="hideAbandon" placeholder="放弃理由"></t-confirm>
   </view>
   <view class='finishConfirm'>
-    <t-confirm visible="{{finishConfirmVisible}}" bindconfirm="confirmFinish" bindcancel="confirmCancel" placeholder="完成了什么"></t-confirm>
+    <t-confirm yes="完成" no="继续" visible="{{finishConfirmVisible}}" bindconfirm="confirmFinish" bindcancel="confirmCancel" placeholder="完成了什么"></t-confirm>
   </view>
 
 </view>

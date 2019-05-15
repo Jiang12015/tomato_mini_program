@@ -1,20 +1,21 @@
-/* pages/me/me.wxss */
-.me-container { 
-  background: #F6F6F6;
+.me-container {
+  background: #f6f6f6;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
- }
-.header { 
+}
+
+.header {
   background: #fff;
   display: flex;
   align-items: center;
-  color: #FE996F;
+  color: #fe996f;
   font-size: 22rpx;
   padding: 10rpx 40rpx;
   margin-bottom: 20rpx;
- }
+}
+
 .header .avatar {
   width: 80rpx;
   height: 80rpx;
@@ -22,12 +23,13 @@
   overflow: hidden;
   margin: 0rpx 20rpx;
 }
-.header .details { 
+
+.header .details {
   align-items: center;
   font-size: 38rpx;
   padding: 20rpx 10rpx;
   flex: 1;
- }
+}
 
 .header .details .name {
   color: black;
@@ -35,7 +37,7 @@
   padding-bottom: 22rpx;
 }
 
-.tabs { 
+.tabs {
   background: #fff;
   display: flex;
   justify-content: center;
@@ -45,19 +47,21 @@
   padding: 20rpx 0;
   margin-bottom: 24rpx;
 }
-.tabs > view { 
+
+.tabs > view {
   text-align: center;
   padding: 10rpx 0rpx;
   height: 100%;
   width: 50%;
- }
-.tabs > view.hover-active { 
-  opacity: 0.5;
- }
+}
 
-.afterTabs{
+.tabs > view.hover-active {
+  opacity: 0.5;
+}
+
+.afterTabs {
   display: inline-block;
-  border: 4rpx solid #F87A5F;
+  border: 4rpx solid #f87a5f;
   margin-top: -35rpx;
   border-radius: 4rpx;
   margin-left: 10%;
@@ -65,20 +69,21 @@
   transition: all 1s;
   margin-bottom: 20rpx;
 }
- .afterTabs.active{
+
+.afterTabs.active {
   margin-left: 60%;
 }
 
-.swiper-wrapper{
+.swiper-wrapper {
   height: 880rpx;
 }
-.me-container .lists { 
+
+.me-container .lists {
   height: 880rpx;
   overflow: scroll;
   padding: 0 24rpx;
-  box-sizing:  border-box;
- }
-
+  box-sizing: border-box;
+}
 
 .me-container .lists .item {
   background: #fff;
@@ -86,7 +91,7 @@
   color: #333;
   border-radius: 8rpx;
   padding: 16rpx 28rpx 35rpx 40rpx;
-  box-shadow: 1rpx 2rpx 6rpx 4rpx rgba(0,0,0,0.10);
+  box-shadow: 1rpx 2rpx 6rpx 4rpx rgba(0, 0, 0, 0.10);
   margin-bottom: 30rpx;
 }
 
@@ -95,19 +100,30 @@
   font-weight: bold;
   margin-bottom: 24rpx;
 }
+
 .me-container .lists .item .content {
   display: flex;
   padding-bottom: 24rpx;
   font-size: 28rpx;
   font-family: PingFangSC-Regular;
-  color: #333333 ;
+  color: #333;
 }
+
 .me-container .lists .item .content text {
   padding-right: 25rpx;
 }
+
 .me-container .lists .item .content detail {
   flex: 1;
   flex-wrap: wrap;
 }
-.qr::after { border: none; }
-.qr { background: transparent; color: #FE996F; font-size: 24rpx;}
+
+.qr::after {
+  border: none;
+}
+
+.qr {
+  background: transparent;
+  color: #fe996f;
+  font-size: 24rpx;
+}
